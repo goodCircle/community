@@ -4,6 +4,7 @@ import com.nowcoder.community.config.AlphaConfig;
 import com.nowcoder.community.service.AlphaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
-import java.util.Enumeration;
+import java.util.*;
 
 @Controller
 @RequestMapping("/alpha")
@@ -84,9 +85,47 @@ public class AlphaController {
     @RequestMapping(path = "/teacher", method = RequestMethod.GET)
     public ModelAndView getTearcher() {
         ModelAndView mav = new ModelAndView();
-        mav.addObject( "name", "dhy");
+        mav.addObject("name", "dhy");
         mav.addObject("age", 24);
         mav.setViewName("/demo/view");
         return mav;
+    }
+
+    @RequestMapping(path = "/school", method = RequestMethod.GET)
+    public String getSchool(Model model) {
+        model.addAttribute("name", "sjtu");
+        model.addAttribute("age", 124);
+        return "/demo/view";
+    }
+
+    // 响应JSON数据（异步请求）
+    // Java对象 -〉JSON字符串 -〉JS对象 （衔接作用，跨语言常用）
+    @RequestMapping(path = "/emp", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> getEmp() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "jojo");
+        map.put("age", 24);
+        map.put("salary", "35k");
+        return map;
+    }
+
+    @RequestMapping(path = "/emps", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, Object>> getEmps() {
+        List<Map<String, Object>> list = new ArrayList<>();
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("name", "jojo");
+        map1.put("age", 24);
+        map1.put("salary", "35k");
+
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("name", "dio");
+        map2.put("age", 24);
+        map2.put("salary", "40k");
+
+        list.add(map1);
+        list.add(map2);
+        return list;
     }
 }
