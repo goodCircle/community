@@ -1,7 +1,6 @@
 package com.nowcoder.community;
 
 import com.nowcoder.community.dao.AlphaDao;
-import com.nowcoder.community.dao.AlphaDaoImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.test.context.SpringBootTest;
