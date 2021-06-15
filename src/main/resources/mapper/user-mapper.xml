@@ -23,7 +23,7 @@
         where username = #{username}
     </select>
 
-    <select id="selectByEmail" resultType="User">
+    <select id="selectByEmail" resultType="com.nowcoder.community.entity.User">
         select <include refid="selectFields"></include>
         from user
         where email = #{email}
