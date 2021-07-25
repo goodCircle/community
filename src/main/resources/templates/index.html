@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +8,7 @@
 	<link rel="stylesheet" th:href="@{/css/global.css}" />
 	<title>牛客网-首页</title>
 </head>
-<body>	
+<body>
 	<div class="nk-container">
 		<!-- 头部 -->
 		<header class="bg-dark sticky-top" th:fragment="header">
@@ -115,7 +115,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- 帖子列表 -->
 				<ul class="list-unstyled">
 					<li class="media pb-3 pt-3 mb-3 border-bottom"th:each="map:${discussPosts}">
@@ -136,7 +136,7 @@
 									<li class="d-inline ml-2">回帖 7</li>
 								</ul>
 							</div>
-						</div>						
+						</div>
 					</li>
 
 				</ul>
